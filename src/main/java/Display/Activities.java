@@ -4,28 +4,46 @@ import Display.Display;
 import Animals.Cat;
 import Animals.Owl;
 import Animals.Dog;
-import com.mycompany.tamagochi.GuiButton;
+import com.mycompany.tamagochi.Buttons;
 import com.mycompany.tamagochi.Main;
 import java.awt.*;
 import java.awt.event.*;
 
 @SuppressWarnings("serial")
 public class Activities extends Display implements MouseMotionListener, MouseListener {
-	private static GuiButton buttonOfMainActivity;
-	private static GuiButton buttonFeed;
-	private static GuiButton buttonTreat;
-	private static GuiButton buttonPlay;
-	private static GuiButton buttonSleep;
-	private static GuiButton buttonBack = new GuiButton(645, 482, 128, 128, 1, "Cofnij", "button_uns.png");
+	private static Buttons buttonOfMainActivity;
+	private static Buttons buttonFeed;
+	private static Buttons buttonTreat;
+	private static Buttons buttonPlay;
+	private static Buttons buttonSleep;
+	private static Buttons buttonScold;
+	private static Buttons buttonBack = new Buttons(645, 482, 128, 128, 1, "Cofnij", "button3.png");
 
-	public Activities() {		
+	public Activities() {
+		if (Main.getGameInstance().getAnimalInstance() instanceof Dog) {
+			buttonOfMainActivity = new Buttons(70, 245, 128, 64, 2, "Spacer", "button1.png");
+			buttonFeed = new Buttons(210, 85, 128, 64, 2, "Nakarm", "button1.png");
+			buttonTreat = new Buttons(460, 85, 128, 64, 2, "Daj kość", "button1.png");
+			buttonPlay = new Buttons(460, 395, 128, 64, 2, "Baw się", "button1.png");
+			buttonSleep = new Buttons(335, 245, 128, 64, 2, "Śpij", "button1.png");
+			buttonScold = new Buttons(585, 245, 128, 64, 2, "Ukarz", "button1.png");
+		}
+		if (Main.getGameInstance().getAnimalInstance() instanceof Owl) {
+			buttonOfMainActivity = new Buttons(70, 245, 128, 64, 2, "Lataj", "button1.png");
+			buttonFeed = new Buttons(210, 85, 128, 64, 2, "Nakarm", "button1.png");
+			buttonTreat = new Buttons(460, 85, 128, 64, 2, "Daj nasionka", "button1.png");
+			buttonPlay = null;
+			buttonSleep = new Buttons(335, 245, 128, 64, 2, "Śpij", "button1.png");
+			buttonScold = null;
+		}
 		if (Main.getGameInstance().getAnimalInstance() instanceof Cat) {
-			buttonOfMainActivity = new GuiButton(70, 245, 128, 64, 2, "Poluj", "button_c_uns.png");
-			buttonFeed = new GuiButton(210, 85, 128, 64, 2, "Nakarm", "button_c_uns.png");
-			buttonTreat = new GuiButton(460, 85, 128, 64, 2, "Daj mysz", "button_c_uns.png");
-			buttonPlay = new GuiButton(460, 395, 128, 64, 2, "Baw się", "button_c_uns.png");			
-			buttonSleep = new GuiButton(335, 245, 128, 64, 2, "Śpij", "button_c_uns.png");
-			
+			buttonOfMainActivity = new Buttons(70, 245, 128, 64, 2, "Poluj", "button1.png");
+			buttonFeed = new Buttons(210, 85, 128, 64, 2, "Nakarm", "button1.png");
+			buttonTreat = new Buttons(460, 85, 128, 64, 2, "Daj mysz", "button1.png");
+			buttonPlay = new Buttons(460, 395, 128, 64, 2, "Baw się", "button1.png");
+			;
+			buttonSleep = new Buttons(335, 245, 128, 64, 2, "Śpij", "button1.png");
+			buttonScold = null;
 		}
 
 		buttons();
@@ -38,14 +56,20 @@ public class Activities extends Display implements MouseMotionListener, MouseLis
 		listOfButtons.add(buttonFeed);
 		listOfButtons.add(buttonTreat);
 		listOfButtons.add(buttonSleep);
-		listOfButtons.add(buttonPlay);
+
+		if (buttonScold != null) {
+			listOfButtons.add(buttonScold);
+		}
+		if (buttonPlay != null) {
+			listOfButtons.add(buttonPlay);
+		}
 		listOfButtons.add(buttonBack);
 	}
 	
 	
 	public void gameBreak() {
 		for (int i = 0; i < listOfButtons.size(); ++i) {
-			GuiButton button = listOfButtons.get(i);
+			Buttons button = listOfButtons.get(i);
 			if (button.getBox().contains(getMouseLocation())) {
 				button.setMouseOver(true);
 			} else {
@@ -62,7 +86,7 @@ public class Activities extends Display implements MouseMotionListener, MouseLis
 	@Override
 	public void draw(Graphics2D g) {
 		for (int i = 0; i < listOfButtons.size(); ++i) {
-			GuiButton button = listOfButtons.get(i);
+			Buttons button = listOfButtons.get(i);
 			button.time();
 			button.drawImage(g);
 		}
@@ -81,7 +105,48 @@ public class Activities extends Display implements MouseMotionListener, MouseLis
 			Main.setDisplay(Main.getGameInstance());
 			setVisible(false);
 		}
-		
+		if (Main.getGameInstance().getAnimalInstance() instanceof Dog) {
+
+			if (buttonOfMainActivity.getBox().contains(e.getPoint())) {
+				Main.getGameInstance().getDogInstance().walkies();
+				Main.setDisplay(Main.getGameInstance());
+				setVisible(false);
+			}
+
+			if (buttonFeed.getBox().contains(e.getPoint())) {
+				Main.getGameInstance().getDogInstance().feeding();
+				Main.setDisplay(Main.getGameInstance());
+				setVisible(false);
+			}
+
+			if (buttonTreat.getBox().contains(e.getPoint())) {
+				Main.getGameInstance().getDogInstance().addBone(1);
+				Main.getGameInstance().getDogInstance()
+						.setHappiness(Main.getGameInstance().getDogInstance().getHappiness() + 1);
+				Main.setDisplay(Main.getGameInstance());
+				setVisible(false);
+			}
+
+			if (buttonPlay.getBox().contains(e.getPoint())) {
+				Main.getGameInstance().getDogInstance().play();
+				Main.getGameInstance().getDogInstance()
+						.setHappiness(Main.getGameInstance().getDogInstance().getHappiness() + 1);
+				Main.setDisplay(Main.getGameInstance());
+				setVisible(false);
+			}
+
+			if (buttonSleep.getBox().contains(e.getPoint())) {
+				Main.getGameInstance().getDogInstance().sleeping();
+				Main.setDisplay(Main.getGameInstance());
+				setVisible(false);
+			}
+
+			if (buttonScold.getBox().contains(e.getPoint())) {
+				Main.getGameInstance().getDogInstance().scold();
+				Main.setDisplay(Main.getGameInstance());
+				setVisible(false);
+			}
+		}
 		if (Main.getGameInstance().getAnimalInstance() instanceof Cat) {
 
 			if (buttonOfMainActivity.getBox().contains(e.getPoint())) {
@@ -97,14 +162,14 @@ public class Activities extends Display implements MouseMotionListener, MouseLis
 			if (buttonTreat.getBox().contains(e.getPoint())) {
 				Main.getGameInstance().getCatInstance().addMouse(1);
 				Main.getGameInstance().getCatInstance()
-						.setSatisfaction(Main.getGameInstance().getCatInstance().getSatisfaction() + 1);
+						.setHappiness(Main.getGameInstance().getCatInstance().getHappiness() + 1);
 				Main.setDisplay(Main.getGameInstance());
 				setVisible(false);
 			}
 			if (buttonPlay.getBox().contains(e.getPoint())) {
 				Main.getGameInstance().getCatInstance().play();
 				Main.getGameInstance().getCatInstance()
-						.setSatisfaction(Main.getGameInstance().getCatInstance().getSatisfaction() + 1);
+						.setHappiness(Main.getGameInstance().getCatInstance().getHappiness() + 1);
 				Main.setDisplay(Main.getGameInstance());
 				setVisible(false);
 			}
@@ -114,6 +179,31 @@ public class Activities extends Display implements MouseMotionListener, MouseLis
 				setVisible(false);
 			}
 
+		}
+		if (Main.getGameInstance().getAnimalInstance() instanceof Owl) {
+			if (buttonOfMainActivity.getBox().contains(e.getPoint())) {
+				Main.getGameInstance().getOwlInstance().fly();
+				Main.setDisplay(Main.getGameInstance());
+				setVisible(false);
+			}
+			if (buttonFeed.getBox().contains(e.getPoint())) {
+				Main.getGameInstance().getOwlInstance().feeding();
+				Main.setDisplay(Main.getGameInstance());
+				setVisible(false);
+			}
+			if (buttonTreat.getBox().contains(e.getPoint())) {
+				Main.getGameInstance().getOwlInstance().addSeed(3);
+				Main.getGameInstance().getOwlInstance()
+						.setHappiness(Main.getGameInstance().getOwlInstance().getHappiness() + 1);
+				Main.setDisplay(Main.getGameInstance());
+				setVisible(false);
+
+			}
+			if (buttonSleep.getBox().contains(e.getPoint())) {
+				Main.getGameInstance().getOwlInstance().sleeping();
+				Main.setDisplay(Main.getGameInstance());
+				setVisible(false);
+			}
 		}
 
 		e.consume();
