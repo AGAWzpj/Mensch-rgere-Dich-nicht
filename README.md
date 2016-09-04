@@ -1,4 +1,4 @@
-# Tamagotchi = ZZJP2016
+# Tamagotchi - ZZJP2016
 
 Autorzy: Anna Wójcik, Adam Gorazda
 
