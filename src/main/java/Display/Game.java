@@ -4,11 +4,12 @@ import Display.Display;
 import AnimalFactory.AnimalType;
 import AnimalFactory.AnimalSimpleFactory;
 import AnimalFactory.AnimalGameFactory;
+import AnimalFactory.FactoryWrapper;
 import Animals.Cat;
 import Animals.Owl;
 import Animals.Dog;
 import Animals.Animal;
-import com.mycompany.tamagochi.Buttons;
+import com.mycompany.tamagochi.Button;
 import com.mycompany.tamagochi.Main;
 import java.awt.*;
 import java.awt.event.*;
@@ -18,22 +19,22 @@ public class Game extends Display implements MouseMotionListener, MouseListener
 {
 
 	private static Animal animal;
-	AnimalSimpleFactory asf= new AnimalGameFactory();	
-	private static Buttons buttonActivities = new Buttons(23, 482, 128, 128, 1, "Czynność", "button3.png");	
-	private static Buttons buttonMenu = new Buttons(645, 482, 128, 128, 1, "Menu główne", "button3.png");
+	 FactoryWrapper baf = new FactoryWrapper();	
+	private static Button buttonActivities = new Button(23, 482, 128, 128, 1, "Czynność", "button3.png");	
+	private static Button buttonMenu = new Button(645, 482, 128, 128, 1, "Menu główne", "button3.png");
 	public Game()
 	{
 		if(Main.getMenuInstance().getAnimal() == "Dog")
 		{
-			animal = asf.createCreature(AnimalType.Dog);
+			animal = baf.getAnimal(AnimalType.Dog);
 		}
         if(Main.getMenuInstance().getAnimal() == "Cat")
 		{
-			animal = asf.createCreature(AnimalType.Cat);;
+			animal = baf.getAnimal(AnimalType.Cat);
 		}
 		if(Main.getMenuInstance().getAnimal() == "Owl")
 		{
-			animal = asf.createCreature(AnimalType.Owl); ;
+			animal = baf.getAnimal(AnimalType.Owl);
 		}
 		lists(); 
 		addMouseMotionListener(this); 
@@ -98,7 +99,7 @@ public class Game extends Display implements MouseMotionListener, MouseListener
 		
 		for (int i = 0; i < listOfButtons.size(); ++i)
 		{
-			Buttons button = (Buttons)listOfButtons.get(i);
+			Button button = (Button)listOfButtons.get(i);
 			button.time();
 			button.drawImage(g);
 		}

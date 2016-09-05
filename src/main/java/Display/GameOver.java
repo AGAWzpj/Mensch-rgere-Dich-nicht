@@ -1,7 +1,7 @@
 package Display;
 
 import Display.Display;
-import com.mycompany.tamagochi.Buttons;
+import com.mycompany.tamagochi.Button;
 import com.mycompany.tamagochi.Main;
 import java.awt.*;
 import java.awt.event.*;
@@ -10,7 +10,7 @@ import java.awt.event.*;
 public class GameOver extends Display implements MouseListener, MouseMotionListener
 {
 
-	private static Buttons buttonMenu = new Buttons(23, 482, 128, 128, 1, "Menu główne", "button3.png");
+	private static Button buttonMenu = new Button(23, 482, 128, 128, 1, "Menu główne", "button3.png");
 	
 	public GameOver()
 	{
@@ -55,7 +55,7 @@ public class GameOver extends Display implements MouseListener, MouseMotionListe
 	{
 		for (int i = 0; i < listOfButtons.size(); ++i)
 		{
-			Buttons button = listOfButtons.get(i);
+			Button button = listOfButtons.get(i);
 			button.time();
 			button.drawImage(g);
 		}

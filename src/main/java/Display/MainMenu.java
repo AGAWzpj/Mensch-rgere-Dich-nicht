@@ -5,7 +5,7 @@ import Animals.Cat;
 import Animals.Owl;
 import Animals.Dog;
 import Animals.Animal;
-import com.mycompany.tamagochi.Buttons;
+import com.mycompany.tamagochi.Button;
 import com.mycompany.tamagochi.Main;
 import java.awt.*;
 import java.awt.event.*;
@@ -13,11 +13,11 @@ import java.awt.event.*;
 @SuppressWarnings("serial")
 public class MainMenu extends Display implements MouseMotionListener, MouseListener {
 
-	private static Buttons buttonPlay = new Buttons(35, 479, 128, 128, 1, "Start", "button3.png");
-	private static Buttons buttonExit = new Buttons(631, 479, 128, 128, 1, "Zakończ", "button3.png");
-	private static Buttons buttonOwlSelect = new Buttons(400, 120, 128, 64, 2, "Owl", "button1.png");
-	private static Buttons buttonDogSelect = new Buttons(400, 200, 128, 64, 2, "Dog", "button1.png");
-	private static Buttons buttonCatSelect = new Buttons(400, 280, 128, 64, 2, "Cat", "button1.png");
+	private static Button buttonPlay = new Button(35, 479, 128, 128, 1, "Start", "button3.png");
+	private static Button buttonExit = new Button(631, 479, 128, 128, 1, "Zakończ", "button3.png");
+	private static Button buttonOwlSelect = new Button(400, 120, 128, 64, 2, "Owl", "button1.png");
+	private static Button buttonDogSelect = new Button(400, 200, 128, 64, 2, "Dog", "button1.png");
+	private static Button buttonCatSelect = new Button(400, 280, 128, 64, 2, "Cat", "button1.png");
 
 	private Animal dog = new Dog(330, 200, "dog.png", false);
 	private Animal cat = new Cat(330, 280, "cat.png", false);
@@ -56,7 +56,7 @@ public class MainMenu extends Display implements MouseMotionListener, MouseListe
 	@Override
 	public void gameBreak() {
 		for (int i = 0; i < listOfButtons.size(); ++i) {
-			Buttons button = listOfButtons.get(i);
+			Button button = listOfButtons.get(i);
 
 			if (button.getBox().contains(getMouseLocation())) {
 				button.setMouseOver(true);
@@ -77,7 +77,7 @@ public class MainMenu extends Display implements MouseMotionListener, MouseListe
 	public void draw(Graphics2D g) {
 
 		for (int i = 0; i < listOfButtons.size(); ++i) {
-			Buttons button = listOfButtons.get(i);
+			Button button = listOfButtons.get(i);
 			button.time();
 			button.drawImage(g);
 		}
