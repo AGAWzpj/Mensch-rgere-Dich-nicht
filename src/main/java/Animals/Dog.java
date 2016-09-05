@@ -10,8 +10,7 @@ public class Dog extends Animal
 {
 
 	private Random rand = new Random();
-	
-	private int bobbing = 0;
+	private int bobbing = 0;	
 	private int resources = 0;
 	private int timeOfFeed = 0;
 	private int timeOfSleep = 0;
@@ -25,8 +24,8 @@ public class Dog extends Animal
 		bone = 0;
 		setStatus("Idle");
 	}
-	
-	public void walkies()
+
+public void walkies()
 	{
 		setStatus("Walking");
 		setPower(getPower() - (5 + rand.nextInt(17)));
@@ -40,7 +39,7 @@ public class Dog extends Animal
 	
 	public void scold()
 	{
-		setSatisfaction(1);
+		setHappiness(1);
 		if(getBone() != 0)
 		{
 			decBone(1);
@@ -88,13 +87,12 @@ public class Dog extends Animal
 		}
 	}
 
-	
 	@Override
 	public void life() 
 	{
 		++bobbing;
 		++resources;
-		timeOfLiving(getTimeLiving() + 1);
+		setTicksLiving(getTicksLiving() + 1);
 		
 		if(bobbing == 50)
 		{
@@ -102,7 +100,7 @@ public class Dog extends Animal
 		}
 		if(bobbing > 50 && bobbing == 100)
 		{
-			setAnimalPicture("dog.png");
+			setAnimalPicture("dog2.png");
 			bobbing = 0;
 		}
 		if(getStatus() != "Sleeping")
@@ -127,23 +125,23 @@ public class Dog extends Animal
 		if(getPower() < 25)
 		{
 			setSleepiness(true);
-			setSatisfaction(1);
+			setHappiness(1);
 		}	
 		if(getEating() >= 85)
 		{
-			setSatisfaction(4);
+			setHappiness(4);
 		}
 		if(getEating() >= 50 && getEating() < 85)
 		{
-			setSatisfaction(3);
+			setHappiness(3);
 		}
 		if(getEating() >= 35 && getEating() < 50)
 		{
-			setSatisfaction(2);
+			setHappiness(2);
 		}
 		if(getEating() >= 1 && getEating() < 35)
 		{
-			setSatisfaction(1);
+			setHappiness(1);
 		}	
 		if(getPower() >= 25)
 		{
@@ -213,7 +211,7 @@ public class Dog extends Animal
 			if(timeOfSleep < 800)
 			{
 				Main.getGameInstance().setBackgroundDark();
-				setAnimalPicture("dog.png");
+				setAnimalPicture("dog2.png");
 			}
 			if(timeOfSleep > 801)
 			{
@@ -259,45 +257,39 @@ public class Dog extends Animal
 	
 		if(isExisting())
 		{
-			switch(getSatisfaction())
+			switch(getHappiness())
 			{
 			case 1:
-				setStatTexture("happiness", "stat_Happiness_1.png");
+				setStatTexture("happiness", "happy1.png");
 				break;
 			case 2:
-				setStatTexture("happiness", "stat_Happiness_2.png");
+				setStatTexture("happiness", "happy2.png");
 				break;
 			case 3:
-				setStatTexture("happiness", "stat_Happiness_3.png");
+				setStatTexture("happiness", "happy3.png");
 				break;
 			case 4:
-				setStatTexture("happiness", "stat_Happiness_4.png");
+				setStatTexture("happiness", "happy4.png");
 				break;
 				
 				default:
-					setStatTexture("happiness", "stat_Happiness.png");
+					setStatTexture("happiness", "happy.png");
 					break;
 			}
 		}
 		
 	}
 	
-	
 	@Override
 	public void render(Graphics2D g)
 	{	
-		
 		g.drawImage(getAnimalPicture(), (int)getX(), (int)getY(), getScale(), getScale(), null);
-		
 		if(isExisting())
 		{
 			g.drawImage(getBoneTexture(), (int)getX() + 32, (int)getY() - 16, 16, 16, null);
 		
 		g.setFont(new Font("Arial", Font.BOLD, 10));
-	
-		
 		g.setColor(Color.white);
-	
 		g.drawString(""+getBone(), (int)getX() + 32, (int)getY() - 14);
 	
 		}
