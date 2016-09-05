@@ -1,7 +1,7 @@
 package Display;
 
 import Animals.Animal;
-import com.mycompany.tamagochi.Buttons;
+import com.mycompany.tamagochi.Button;
 import com.mycompany.tamagochi.Main;
 import java.awt.*;
 import java.util.ArrayList;
@@ -12,12 +12,12 @@ public abstract class Display extends JPanel {
 
 	protected Image background = new ImageIcon(Main.class.getResource("/Icon/background.png")).getImage();
 	protected Point mouseLocation;
-	protected ArrayList<Buttons> listOfButtons;
+	protected ArrayList<Button> listOfButtons;
 	protected ArrayList<Animal> listOfAnimals;
 
 	protected Display() {
 		mouseLocation = new Point();
-		listOfButtons = new ArrayList<Buttons>();
+		listOfButtons = new ArrayList<Button>();
 		listOfAnimals = new ArrayList<Animal>();
 		setFocusable(true);
 		requestFocus();
