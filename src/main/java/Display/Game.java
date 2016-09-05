@@ -8,7 +8,7 @@ import Animals.Cat;
 import Animals.Owl;
 import Animals.Dog;
 import Animals.Animal;
-import com.mycompany.tamagochi.GuiButton;
+import com.mycompany.tamagochi.Buttons;
 import com.mycompany.tamagochi.Main;
 import java.awt.*;
 import java.awt.event.*;
@@ -17,12 +17,24 @@ import java.awt.event.*;
 public class Game extends Display implements MouseMotionListener, MouseListener
 {
 
-	private static Animal animal;	
-	private static GuiButton buttonActivities = new GuiButton(23, 482, 128, 128, 1, "Czynność", "button_uns.png");	
-	private static GuiButton buttonMenu = new GuiButton(645, 482, 128, 128, 1, "Menu główne", "button_uns.png");
+	private static Animal animal;
+	AnimalSimpleFactory asf= new AnimalGameFactory();	
+	private static Buttons buttonActivities = new Buttons(23, 482, 128, 128, 1, "Czynność", "button3.png");	
+	private static Buttons buttonMenu = new Buttons(645, 482, 128, 128, 1, "Menu główne", "button3.png");
 	public Game()
-	{		
-		animal =new Cat(340, 375, "cat.png", true);
+	{
+		if(Main.getMenuInstance().getAnimal() == "Dog")
+		{
+			animal = asf.createCreature(AnimalType.Dog);
+		}
+        if(Main.getMenuInstance().getAnimal() == "Cat")
+		{
+			animal = asf.createCreature(AnimalType.Cat);;
+		}
+		if(Main.getMenuInstance().getAnimal() == "Owl")
+		{
+			animal = asf.createCreature(AnimalType.Owl); ;
+		}
 		lists(); 
 		addMouseMotionListener(this); 
 		addMouseListener(this); 
@@ -86,11 +98,11 @@ public class Game extends Display implements MouseMotionListener, MouseListener
 		
 		for (int i = 0; i < listOfButtons.size(); ++i)
 		{
-			GuiButton button = (GuiButton)listOfButtons.get(i);
+			Buttons button = (Buttons)listOfButtons.get(i);
 			button.time();
 			button.drawImage(g);
 		}
-		
+
 		g.setColor(Color.BLACK);
 		g.setFont(new Font("Tahoma", Font.CENTER_BASELINE, 26));
 		g.drawString(animal.getName(), 350, 560); 
@@ -104,7 +116,18 @@ public class Game extends Display implements MouseMotionListener, MouseListener
 	public Animal getAnimalInstance()
 	{
 		return animal;
-	}	
+	}
+	
+	
+	public Dog getDogInstance()
+	{
+		return (Dog)animal;
+	}
+	
+	public Owl getOwlInstance()
+	{
+		return (Owl)animal;
+	}
         
     public Cat getCatInstance()
 	{

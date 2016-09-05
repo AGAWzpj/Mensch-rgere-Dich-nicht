@@ -1,7 +1,7 @@
 package Display;
 
 import Animals.Animal;
-import com.mycompany.tamagochi.GuiButton;
+import com.mycompany.tamagochi.Buttons;
 import com.mycompany.tamagochi.Main;
 import java.awt.*;
 import java.util.ArrayList;
@@ -10,14 +10,14 @@ import javax.swing.*;
 @SuppressWarnings("serial")
 public abstract class Display extends JPanel {
 
-	protected Image background = new ImageIcon(Main.class.getResource("/GUI/Icon/interface.png")).getImage();
+	protected Image background = new ImageIcon(Main.class.getResource("/Icon/background.png")).getImage();
 	protected Point mouseLocation;
-	protected ArrayList<GuiButton> listOfButtons;
+	protected ArrayList<Buttons> listOfButtons;
 	protected ArrayList<Animal> listOfAnimals;
 
 	protected Display() {
 		mouseLocation = new Point();
-		listOfButtons = new ArrayList<GuiButton>();
+		listOfButtons = new ArrayList<Buttons>();
 		listOfAnimals = new ArrayList<Animal>();
 		setFocusable(true);
 		requestFocus();
@@ -60,6 +60,14 @@ public abstract class Display extends JPanel {
 
 	public Image getBackgroundImage() {
 		return background;
+	}
+
+	public void setBackgroundDark() {
+		background = new ImageIcon(Main.class.getResource("/Icon/background2.png")).getImage();
+	}
+
+	public void resetBackground() {
+		background = new ImageIcon(Main.class.getResource("/Icon/background.png")).getImage();
 	}
 
 	public Point getMouseLocation() {
