@@ -13,10 +13,10 @@ public class AnimalGameFactory implements AnimalSimpleFactory{
 		Animal anim=null;
 		switch(type){
 		case Dog:
-			anim=new Dog(340, 375, "wufa_a.png", true);
+			anim=new Dog(340, 375, "dog.png", true);
 			break;
 		case Owl:
-			anim=new Owl(340, 375, "tweta_a.png", true);
+			anim=new Owl(340, 375, "owl.png", true);
 			break;
                 case Cat:
 			anim=new Cat(340, 375, "cat.png", true);
