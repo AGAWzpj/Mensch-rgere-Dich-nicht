@@ -13,13 +13,21 @@ public class Owl extends Animal {
 	private int timeOfFeed = 0;
 	private int timeOfSleep = 0;
 	private int seed;
-	private int stage = 1;
+	public int stage = 1;
 
 	public Owl(double v1, double v2, String v3, boolean v4) {
 		super(v1, v2, v3, v4);
 		seed = 0;
 		setStatus("Idle");
 	}
+        
+        public int getBobbing(){
+            return bobbing;
+        }
+        
+        public void setBobbing(int x){
+            this.bobbing = x;
+        }
 
 	public void fly() {
 		setStatus("Flying");
