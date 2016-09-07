@@ -253,7 +253,7 @@ public class OwlTest {
         instance.setStatus("Latanie");
         instance.stage = 1;
         instance.life();
-        double expectedResult = 4.5;
+        double expectedResult = 4.5-0.6;
         double result = instance.getX();
         assertEquals(expectedResult, result, 0.01);
     }
