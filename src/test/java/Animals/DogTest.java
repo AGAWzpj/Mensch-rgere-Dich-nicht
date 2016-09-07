@@ -48,7 +48,7 @@ public class DogTest {
         System.out.println("walkies");
         Dog instance = new Dog(4.5,6.7,"dog.png",true);
         instance.walkies();
-        String expectedResult = "Walking";
+        String expectedResult = "Spacer";
         String result = instance.getStatus();
         assertEquals(expectedResult, result);
     }
@@ -61,7 +61,7 @@ public class DogTest {
         System.out.println("play");
         Dog instance = new Dog(4.5,6.7,"dog.png",true);
         instance.play();
-        String expectedResult = "Playing";
+        String expectedResult = "Zabawa";
         String result = instance.getStatus();
         assertEquals(expectedResult, result);
     }
@@ -76,7 +76,7 @@ public class DogTest {
         System.out.println("feeding");
         Dog instance = new Dog(4.5,6.7,"dog.png",true);
         instance.feeding();
-        String expectedResult = "Feeding";
+        String expectedResult = "Karmienie";
         String result = instance.getStatus();
         assertEquals(expectedResult, result);
     }
@@ -267,7 +267,7 @@ public class DogTest {
     public void testLife12() {
         System.out.println("life");
         Dog instance = new Dog(4.5,6.7,"dog.png",true);        
-        instance.setStatus("Playing");
+        instance.setStatus("Zabawa");
         instance.life();
         double expectedResult = 6.7-1.5;
         double result = instance.getY();
@@ -278,7 +278,7 @@ public class DogTest {
     public void testLife13() {
         System.out.println("life");
         Dog instance = new Dog(4.5,6.7,"dog.png",true);        
-        instance.setStatus("Walking");
+        instance.setStatus("Spacer");
         instance.life();
         double expectedResult = 4.5+2.1;
         double result = instance.getX();
@@ -312,7 +312,7 @@ public class DogTest {
         Dog instance = new Dog(4.5,6.7,"dog.png",true);
         instance.setPower(0);
         instance.life();
-        String expectedResult = "Dead";
+        String expectedResult = "Śmierć";
         String result = instance.getStatus();
         assertEquals(expectedResult, result);
     }  
