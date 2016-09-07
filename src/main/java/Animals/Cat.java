@@ -35,6 +35,17 @@ public class Cat extends Animal {
 	public void setBobbing(int x) {
 		this.bobbing = x;
 	}
+<<<<<<< HEAD
+=======
+
+	public int getBobbing() {
+		return bobbing;
+	}
+
+	public void setBobbing(int x) {
+		this.bobbing = x;
+	}
+>>>>>>> master
 
 	public void hunting() {
 		setStatus("Polowanie");

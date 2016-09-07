@@ -28,6 +28,17 @@ public class Owl extends Animal {
 	public void setBobbing(int x) {
 		this.bobbing = x;
 	}
+<<<<<<< HEAD
+=======
+
+	public int getBobbing() {
+		return bobbing;
+	}
+
+	public void setBobbing(int x) {
+		this.bobbing = x;
+	}
+>>>>>>> master
 
 	public void fly() {
 		setStatus("Latanie");
