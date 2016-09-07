@@ -89,13 +89,13 @@ public class MainMenu extends Display implements MouseMotionListener, MouseListe
 		}
 
 		if (!animalSelected) {
-			g.setColor(Color.WHITE);
+			g.setColor(Color.BLACK);
 			g.setFont(new Font("Tahoma", Font.CENTER_BASELINE, 26));
 			g.drawString("Wybierz rodzaj zwierzaka...", 170, 90);
 		}
 
 		if (animalSelected) {
-			g.setColor(Color.WHITE);
+			g.setColor(Color.BLACK);
 			g.setFont(new Font("Tahoma", Font.CENTER_BASELINE, 26));
 			g.drawString(animal + " wybrany", 190, 90);
 		}
