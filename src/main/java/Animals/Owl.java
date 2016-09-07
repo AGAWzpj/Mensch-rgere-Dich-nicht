@@ -18,7 +18,7 @@ public class Owl extends Animal {
 	public Owl(double v1, double v2, String v3, boolean v4) {
 		super(v1, v2, v3, v4);
 		seed = 0;
-		setStatus("Idle");
+		setStatus("Bezczynność");
 	}
 
 	public int getBobbing() {
@@ -28,21 +28,32 @@ public class Owl extends Animal {
 	public void setBobbing(int x) {
 		this.bobbing = x;
 	}
+<<<<<<< HEAD
+=======
+
+	public int getBobbing() {
+		return bobbing;
+	}
+
+	public void setBobbing(int x) {
+		this.bobbing = x;
+	}
+>>>>>>> master
 
 	public void fly() {
-		setStatus("Flying");
+		setStatus("Latanie");
 		setEating(getEating() - (12 + rand.nextInt(8)));
 		setPower(getPower() - (18 + rand.nextInt(5)));
 	}
 
 	public void feeding() {
-		setStatus("Feeding");
+		setStatus("Karmienie");
 		setPower(getPower() + (3 + rand.nextInt(4)));
 	}
 
 	public void sleeping() {
 		if (getSleepiness()) {
-			setStatus("Sleeping");
+			setStatus("Spanie");
 			setPower(getPower() + (45 + rand.nextInt(18)));
 		} else {
 			return;
@@ -126,7 +137,7 @@ public class Owl extends Animal {
 			die();
 		}
 
-		if (getStatus() == "Sleeping") {
+		if (getStatus() == "Spanie") {
 			++timeOfSleep;
 
 			if (resources == 100) {
@@ -147,12 +158,12 @@ public class Owl extends Animal {
 			}
 			if (timeOfSleep > 801) {
 				Main.getGameInstance().resetBackground();
-				setStatus("Idle");
+				setStatus("Bezczynność");
 				timeOfSleep = 0;
 			}
 		}
 
-		if (getStatus() == "Flying") {
+		if (getStatus() == "Latanie") {
 			if (stage == 1) {
 				setY(getY() - 0.7);
 				setX(getX() + 0.3);
@@ -192,7 +203,7 @@ public class Owl extends Animal {
 					setX(getX() + 1.7);
 
 					if (getX() <= 350 && getX() >= 320) {
-						setStatus("Idle");
+						setStatus("Bezczynność");
 						stage = 1;
 						timeOfFly = 0;
 						setX(340);
@@ -202,7 +213,7 @@ public class Owl extends Animal {
 			}
 		}
 
-		if (getStatus() == "Feeding") {
+		if (getStatus() == "Karmienie") {
 
 			++timeOfFeed;
 
@@ -220,7 +231,7 @@ public class Owl extends Animal {
 			}
 			if (timeOfFeed == 100) {
 				setEating(getEating() + (2 + rand.nextInt(2)));
-				setStatus("Idle");
+				setStatus("Bezczynność");
 				timeOfFeed = 0;
 			}
 

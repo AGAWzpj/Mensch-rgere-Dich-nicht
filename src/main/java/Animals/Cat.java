@@ -25,7 +25,7 @@ public class Cat extends Animal {
 	public Cat(double v1, double v2, String v3, boolean v4) {
 		super(v1, v2, v3, v4);
 		mouse = 0;
-		setStatus("Idle");
+		setStatus("Bezczynność");
 	}
 
 	public int getBobbing() {
@@ -35,25 +35,36 @@ public class Cat extends Animal {
 	public void setBobbing(int x) {
 		this.bobbing = x;
 	}
+<<<<<<< HEAD
+=======
+
+	public int getBobbing() {
+		return bobbing;
+	}
+
+	public void setBobbing(int x) {
+		this.bobbing = x;
+	}
+>>>>>>> master
 
 	public void hunting() {
-		setStatus("Hunting");
+		setStatus("Polowanie");
 		setPower(getPower() - (5 + rand.nextInt(17)));
 		setEating(getEating() - (4 + rand.nextInt(8)));
 	}
 
 	public void play() {
-		setStatus("Playing");
+		setStatus("Zabawa");
 	}
 
 	public void feeding() {
-		setStatus("Feeding");
+		setStatus("Karmienie");
 		setPower(getPower() + (3 + rand.nextInt(4)));
 	}
 
 	public void sleeping() {
 		if (getSleepiness()) {
-			setStatus("Sleeping");
+			setStatus("Spanie");
 			setPower(getPower() + (45 + rand.nextInt(18)));
 		} else {
 			return;
@@ -89,7 +100,7 @@ public class Cat extends Animal {
 			setAnimalPicture("cat2.png");
 			bobbing = 0;
 		}
-		if (getStatus() != "Sleeping") {
+		if (getStatus() != "Spanie") {
 			if (resources == 100) {
 				if (getEating() != 0) {
 					setEating(getEating() - (3 + rand.nextInt(3)));
@@ -135,7 +146,7 @@ public class Cat extends Animal {
 			setPower(100);
 		}
 
-		if (getStatus() == "Playing") {
+		if (getStatus() == "Zabawa") {
 			++timeOfPlay;
 
 			if (timeOfPlay <= 20) {
@@ -150,14 +161,14 @@ public class Cat extends Animal {
 				timeOfPlay = 0;
 			}
 			if (playCount == 6) {
-				setStatus("Idle");
+				setStatus("Bezczynność");
 				timeOfPlay = 0;
 				playCount = 0;
 			}
 
 		}
 
-		if (getStatus() == "Hunting") {
+		if (getStatus() == "Polowanie") {
 
 			if (stage == 1) {
 				setX(getX() + 0.3);
@@ -191,7 +202,7 @@ public class Cat extends Animal {
 					setX(getX() + 1.7);
 
 					if (getX() <= 350 && getX() >= 320) {
-						setStatus("Idle");
+						setStatus("Bezczynność");
 						stage = 1;
 						timeOfHunt = 0;
 						setX(340);
@@ -204,11 +215,11 @@ public class Cat extends Animal {
 			setX(-20);
 		}
 		if (getX() < 340 && getX() > 330) {
-			setStatus("Idle");
+			setStatus("Bezczynność");
 			setX(340);
 		}
 
-		if (getStatus() == "Sleeping") {
+		if (getStatus() == "Spanie") {
 			++timeOfSleep;
 			if (timeOfSleep < 800) {
 				Main.getGameInstance().setBackgroundDark();
@@ -216,12 +227,12 @@ public class Cat extends Animal {
 			}
 			if (timeOfSleep > 801) {
 				Main.getGameInstance().resetBackground();
-				setStatus("Idle");
+				setStatus("Bezczynność");
 				timeOfSleep = 0;
 			}
 		}
 
-		if (getStatus() == "Feeding") {
+		if (getStatus() == "Karmienie") {
 			++timeOfFeed;
 
 			if (timeOfFeed == 20) {
@@ -238,7 +249,7 @@ public class Cat extends Animal {
 			}
 			if (timeOfFeed == 100) {
 				setEating(getEating() + (2 + rand.nextInt(2)));
-				setStatus("Idle");
+				setStatus("Bezczynność");
 				timeOfFeed = 0;
 			}
 
