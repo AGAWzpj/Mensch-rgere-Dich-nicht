@@ -31,21 +31,13 @@ public class Dog extends Animal {
 	}
 
 	public void walkies() {
-<<<<<<< HEAD
 		setStatus("Spacer");
-=======
-		setStatus("Walking");
->>>>>>> master
 		setPower(getPower() - (5 + rand.nextInt(17)));
 		setEating(getEating() - (4 + rand.nextInt(8)));
 	}
 
 	public void play() {
-<<<<<<< HEAD
 		setStatus("Zabawa");
-=======
-		setStatus("Playing");
->>>>>>> master
 	}
 
 	public void scold() {
@@ -56,21 +48,13 @@ public class Dog extends Animal {
 	}
 
 	public void feeding() {
-<<<<<<< HEAD
 		setStatus("Karmienie");
-=======
-		setStatus("Feeding");
->>>>>>> master
 		setPower(getPower() + (3 + rand.nextInt(4)));
 	}
 
 	public void sleeping() {
 		if (getSleepiness()) {
-<<<<<<< HEAD
 			setStatus("Spanie");
-=======
-			setStatus("Sleeping");
->>>>>>> master
 			setPower(getPower() + (45 + rand.nextInt(18)));
 		} else {
 			return;
@@ -106,11 +90,7 @@ public class Dog extends Animal {
 			setAnimalPicture("dog2.png");
 			bobbing = 0;
 		}
-<<<<<<< HEAD
 		if (getStatus() != "Spanie") {
-=======
-		if (getStatus() != "Sleeping") {
->>>>>>> master
 			if (resources == 100) {
 				if (getEating() != 0) {
 					setEating(getEating() - (3 + rand.nextInt(3)));
@@ -156,11 +136,7 @@ public class Dog extends Animal {
 			setPower(100);
 		}
 
-<<<<<<< HEAD
 		if (getStatus() == "Zabawa") {
-=======
-		if (getStatus() == "Playing") {
->>>>>>> master
 			++timeOfPlay;
 
 			if (timeOfPlay <= 20) {
@@ -175,41 +151,27 @@ public class Dog extends Animal {
 				timeOfPlay = 0;
 			}
 			if (playCount == 6) {
-<<<<<<< HEAD
+
 				setStatus("Bezczynność");
-=======
-				setStatus("Idle");
->>>>>>> master
 				timeOfPlay = 0;
 				playCount = 0;
 			}
 
 		}
 
-<<<<<<< HEAD
 		if (getStatus() == "Spacer") {
-=======
-		if (getStatus() == "Walking") {
->>>>>>> master
 			setX(getX() + 2.1);
 		}
 		if (getX() >= 930) {
 			setX(-20);
 		}
 		if (getX() < 340 && getX() > 330) {
-<<<<<<< HEAD
+
 			setStatus("Bezczynność");
 			setX(340);
 		}
 
 		if (getStatus() == "Spanie") {
-=======
-			setStatus("Idle");
-			setX(340);
-		}
-
-		if (getStatus() == "Sleeping") {
->>>>>>> master
 			++timeOfSleep;
 			if (timeOfSleep < 800) {
 				Main.getGameInstance().setBackgroundDark();
@@ -221,12 +183,7 @@ public class Dog extends Animal {
 				timeOfSleep = 0;
 			}
 		}
-
-<<<<<<< HEAD
 		if (getStatus() == "Karmienie") {
-=======
-		if (getStatus() == "Feeding") {
->>>>>>> master
 			++timeOfFeed;
 
 			if (timeOfFeed == 20) {
