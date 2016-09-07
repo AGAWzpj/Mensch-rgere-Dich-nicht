@@ -65,8 +65,7 @@ public class Activities extends Display implements MouseMotionListener, MouseLis
 		}
 		listOfButtons.add(buttonBack);
 	}
-	
-	
+
 	public void gameBreak() {
 		for (int i = 0; i < listOfButtons.size(); ++i) {
 			Button button = listOfButtons.get(i);
@@ -78,6 +77,7 @@ public class Activities extends Display implements MouseMotionListener, MouseLis
 		}
 		super.gameBreak();
 	}
+
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
@@ -208,6 +208,7 @@ public class Activities extends Display implements MouseMotionListener, MouseLis
 
 		e.consume();
 	}
+
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
 	}
