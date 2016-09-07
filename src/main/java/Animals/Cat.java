@@ -12,20 +12,28 @@ import javax.swing.ImageIcon;
 public class Cat extends Animal {
 
 	private Random rand = new Random();
-	private int boobing = 0;
+	private int bobbing = 0;
 	private int resources = 0;
 	private int timeOfFeed = 0;
 	private int timeOfSleep = 0;
 	private int timeOfPlay = 0;
 	private int playCount = 0;
 	private int mouse;
-	private int stage = 1;
+	public int stage = 1;
 	private int timeOfHunt = 0;
 
 	public Cat(double v1, double v2, String v3, boolean v4) {
 		super(v1, v2, v3, v4);
 		mouse = 0;
 		setStatus("Idle");
+	}
+
+	public int getBobbing() {
+		return bobbing;
+	}
+
+	public void setBobbing(int x) {
+		this.bobbing = x;
 	}
 
 	public void hunting() {
@@ -70,16 +78,16 @@ public class Cat extends Animal {
 
 	@Override
 	public void life() {
-		++boobing;
+		++bobbing;
 		++resources;
 		setTicksLiving(getTicksLiving() + 1);
 
-		if (boobing == 50) {
+		if (bobbing == 50) {
 			setAnimalPicture("cat.png");
 		}
-		if (boobing > 50 && boobing == 100) {
+		if (bobbing > 50 && bobbing == 100) {
 			setAnimalPicture("cat2.png");
-			boobing = 0;
+			bobbing = 0;
 		}
 		if (getStatus() != "Sleeping") {
 			if (resources == 100) {

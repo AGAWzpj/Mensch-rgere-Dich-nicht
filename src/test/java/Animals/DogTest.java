@@ -19,9 +19,9 @@ import static org.junit.Assert.*;
  *
  * @author asus
  */
-public class CatTest {
+public class DogTest {
     
-    public CatTest() {
+    public DogTest() {
     }
     
     @BeforeClass
@@ -40,32 +40,26 @@ public class CatTest {
     public void tearDown() {
     }
 
-<<<<<<< HEAD
-    @Test
-    public void testWalkies() {
-        System.out.println("walkies");
-=======
     /**
-     * Test of hunting method, of class Cat.
+     * Test of walkies method, of class Dog.
      */
     @Test
     public void testWalkies() {
-        System.out.println("hunting");
->>>>>>> 0ccb324173edfa9ee5b05168995949d38c03d773
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);
-        instance.hunting();
-        String expectedResult = "Hunting";
+        System.out.println("walkies");
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);
+        instance.walkies();
+        String expectedResult = "Walking";
         String result = instance.getStatus();
         assertEquals(expectedResult, result);
     }
 
     /**
-     * Test of play method, of class Cat.
+     * Test of play method, of class Dog.
      */
     @Test
     public void testPlay() {
         System.out.println("play");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);
         instance.play();
         String expectedResult = "Playing";
         String result = instance.getStatus();
@@ -75,27 +69,24 @@ public class CatTest {
    
 
     /**
-     * Test of feeding method, of class Cat.
+     * Test of feeding method, of class Dog.
      */
     @Test
     public void testFeeding() {
         System.out.println("feeding");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);
         instance.feeding();
         String expectedResult = "Feeding";
         String result = instance.getStatus();
         assertEquals(expectedResult, result);
     }
-<<<<<<< HEAD
-    
-=======
 
     /**
-     * Test of sleeping method, of class Cat.
+     * Test of sleeping method, of class Dog.
      
     @Test
     public void testSleeping() {
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);
         instance.setSleepiness(true);
         instance.sleeping();        
         String expectedResult = "Sleeping";
@@ -103,75 +94,57 @@ public class CatTest {
         assertEquals(expectedResult, result);
     }*/
 
->>>>>>> 0ccb324173edfa9ee5b05168995949d38c03d773
     /**
-     * Test of getMouse method, of class Cat.
+     * Test of getBone method, of class Dog.
      */
     @Test
-    public void testGetMouse() {
-        System.out.println("getMouse");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);
+    public void testGetBone() {
+        System.out.println("getBone");
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);
         int expResult = 0;
-        int result = instance.getMouse();
+        int result = instance.getBone();
         assertEquals(expResult, result);
     }
 
-<<<<<<< HEAD
-        /**
-     * Test of addmouse method, of class Cat.
-     */
-    @Test
-    public void testAddMouse() {
-        System.out.println("addBone");
-=======
     /**
-     * Test of addMouse method, of class Cat.
+     * Test of addBone method, of class Dog.
      */
     @Test
-    public void testAddMouse() {
-        System.out.println("addMouse");
->>>>>>> 0ccb324173edfa9ee5b05168995949d38c03d773
+    public void testAddBone() {
+        System.out.println("addBone");
         int par1 = 1;
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);
-        instance.addMouse(par1);
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);
+        instance.addBone(par1);
         int expectedResult = 1;
-        int result = instance.getMouse();
+        int result = instance.getBone();
         assertEquals(expectedResult, result);
     }
 
     /**
-<<<<<<< HEAD
-     * Test of decmouse method, of class Cat.
+     * Test of decBone method, of class Dog.
      */
     @Test
     public void testDecBone() {
         System.out.println("decBone");
-=======
-     * Test of decMouse method, of class Cat.
-     */
-    @Test
-    public void testDecMouse() {
-        System.out.println("decMouse");
->>>>>>> 0ccb324173edfa9ee5b05168995949d38c03d773
         int par1 = 3;
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);
-        instance.addMouse(par1);
-        instance.decMouse(1);
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);
+        instance.addBone(par1);
+        instance.decBone(1);
         int expectedResult = 2;
-        int result = instance.getMouse();
+        int result = instance.getBone();
         assertEquals(expectedResult, result);
     }
 
     /**
-     * Test of life method, of class Cat.
+     * Test of life method, of class Dog.
      */
     @Test
     public void testLife() {
         System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);
         instance.setBobbing(50);
         Image result = instance.getAnimalPicture();
-        Image expectedResult = new ImageIcon(this.getClass().getResource("/Animals/cat.png")).getImage();
+        Image expectedResult = new ImageIcon(this.getClass().getResource("/Animals/dog.png")).getImage();
         assertEquals(expectedResult, result);
     }    
    
@@ -180,7 +153,7 @@ public class CatTest {
       @Test
     public void testLife2() {
         System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);        
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);        
         instance.setPower(10);
         instance.life();
         boolean expectedResult = true;
@@ -191,7 +164,7 @@ public class CatTest {
       @Test
     public void testLife3() {
         System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);
         instance.setEating(70);
         instance.life();
         int expectedResult = 3;
@@ -203,7 +176,7 @@ public class CatTest {
       @Test
     public void testLife4() {
             System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);
         instance.setEating(90);
         instance.life();
         int expectedResult = 4;
@@ -213,7 +186,7 @@ public class CatTest {
      @Test
     public void testLife5() {
             System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);
         instance.setEating(40);
         instance.life();
         int expectedResult = 2;
@@ -224,7 +197,7 @@ public class CatTest {
      @Test
     public void testLife6() {
             System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);
         instance.setEating(10);
         instance.life();
         int expectedResult = 1;
@@ -236,7 +209,7 @@ public class CatTest {
       @Test
     public void testLife7() {
         System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);        
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);        
         instance.setPower(40);
         instance.life();
         boolean expectedResult = false;
@@ -247,7 +220,7 @@ public class CatTest {
       @Test
     public void testLife8() {
         System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);        
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);        
         instance.setEating(-3);
         instance.life();
         int expectedResult = 0;
@@ -258,7 +231,7 @@ public class CatTest {
       @Test
     public void testLife9() {
         System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);        
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);        
         instance.setEating(103);
         instance.life();
         int expectedResult = 100;
@@ -270,7 +243,7 @@ public class CatTest {
       @Test
     public void testLife10() {
         System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);        
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);        
         instance.setPower(-3);
         instance.life();
         int expectedResult = 0;
@@ -281,7 +254,7 @@ public class CatTest {
       @Test
     public void testLife11() {
         System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);        
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);        
         instance.setPower(103);
         instance.life();
         int expectedResult = 100;
@@ -293,7 +266,7 @@ public class CatTest {
       @Test
     public void testLife12() {
         System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);        
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);        
         instance.setStatus("Playing");
         instance.life();
         double expectedResult = 6.7-1.5;
@@ -304,14 +277,10 @@ public class CatTest {
       @Test
     public void testLife13() {
         System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);        
-        instance.setStatus("Hunting");
-<<<<<<< HEAD
-        instance.stage = 1;
-=======
->>>>>>> 0ccb324173edfa9ee5b05168995949d38c03d773
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);        
+        instance.setStatus("Walking");
         instance.life();
-        double expectedResult = 4.5+0.3;
+        double expectedResult = 4.5+2.1;
         double result = instance.getX();
         assertEquals(expectedResult, result, 0.01);
     }
@@ -319,7 +288,7 @@ public class CatTest {
     @Test
     public void testLife14() {
         System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);        
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);        
         instance.setX(1000);
         instance.life();
         double expectedResult = -20;
@@ -330,7 +299,7 @@ public class CatTest {
     @Test
     public void testLife15() {
         System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);        
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);        
         instance.setX(335);
         instance.life();
         double expectedResult = 340;
@@ -340,7 +309,7 @@ public class CatTest {
     @Test
     public void testLife16() {
      System.out.println("life");
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);
+        Dog instance = new Dog(4.5,6.7,"dog.png",true);
         instance.setPower(0);
         instance.life();
         String expectedResult = "Dead";
@@ -349,6 +318,3 @@ public class CatTest {
     }  
     
 }
-
-    
-
