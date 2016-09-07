@@ -45,7 +45,7 @@ public class OwlTest {
         System.out.println("walkies");
         Owl instance = new Owl(4.5,6.7,"owl.png",true);
         instance.fly();
-        String expectedResult = "Flying";
+        String expectedResult = "Latanie";
         String result = instance.getStatus();
         assertEquals(expectedResult, result);
     }
@@ -61,7 +61,7 @@ public class OwlTest {
         System.out.println("feeding");
         Owl instance = new Owl(4.5,6.7,"owl.png",true);
         instance.feeding();
-        String expectedResult = "Feeding";
+        String expectedResult = "Karmienie";
         String result = instance.getStatus();
         assertEquals(expectedResult, result);
     }
@@ -239,7 +239,7 @@ public class OwlTest {
     public void testLife12() {
         System.out.println("life");
         Owl instance = new Owl(4.5,6.7,"owl.png",true);        
-        instance.setStatus("Playing");
+        instance.setStatus("Zabawa");
         instance.life();
         double expectedResult = 6.7;
         double result = instance.getY();
@@ -250,7 +250,7 @@ public class OwlTest {
     public void testLife13() {
         System.out.println("life");
         Owl instance = new Owl(4.5,6.7,"owl.png",true);        
-        instance.setStatus("Hunting");
+        instance.setStatus("Latanie");
         instance.stage = 1;
         instance.life();
         double expectedResult = 4.5;
@@ -285,7 +285,7 @@ public class OwlTest {
         Owl instance = new Owl(4.5,6.7,"owl.png",true);
         instance.setPower(0);
         instance.life();
-        String expectedResult = "Dead";
+        String expectedResult = "Śmierć";
         String result = instance.getStatus();
         assertEquals(expectedResult, result);
     }  
