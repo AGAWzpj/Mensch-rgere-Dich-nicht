@@ -40,21 +40,13 @@ public class CatTest {
     public void tearDown() {
     }
 
-<<<<<<< HEAD
+
     @Test
-    public void testWalkies() {
-        System.out.println("walkies");
-=======
-    /**
-     * Test of hunting method, of class Cat.
-     */
-    @Test
-    public void testWalkies() {
+    public void testHunting() {
         System.out.println("hunting");
->>>>>>> 0ccb324173edfa9ee5b05168995949d38c03d773
         Cat instance = new Cat(4.5,6.7,"cat.png",true);
         instance.hunting();
-        String expectedResult = "Hunting";
+        String expectedResult = "Polowanie";
         String result = instance.getStatus();
         assertEquals(expectedResult, result);
     }
@@ -67,7 +59,7 @@ public class CatTest {
         System.out.println("play");
         Cat instance = new Cat(4.5,6.7,"cat.png",true);
         instance.play();
-        String expectedResult = "Playing";
+        String expectedResult = "Zabawa";
         String result = instance.getStatus();
         assertEquals(expectedResult, result);
     }
@@ -82,28 +74,11 @@ public class CatTest {
         System.out.println("feeding");
         Cat instance = new Cat(4.5,6.7,"cat.png",true);
         instance.feeding();
-        String expectedResult = "Feeding";
+        String expectedResult = "Karmienie";
         String result = instance.getStatus();
         assertEquals(expectedResult, result);
     }
-<<<<<<< HEAD
-    
-=======
 
-    /**
-     * Test of sleeping method, of class Cat.
-     
-    @Test
-    public void testSleeping() {
-        Cat instance = new Cat(4.5,6.7,"cat.png",true);
-        instance.setSleepiness(true);
-        instance.sleeping();        
-        String expectedResult = "Sleeping";
-        String result = instance.getStatus();
-        assertEquals(expectedResult, result);
-    }*/
-
->>>>>>> 0ccb324173edfa9ee5b05168995949d38c03d773
     /**
      * Test of getMouse method, of class Cat.
      */
@@ -116,21 +91,12 @@ public class CatTest {
         assertEquals(expResult, result);
     }
 
-<<<<<<< HEAD
-        /**
-     * Test of addmouse method, of class Cat.
-     */
-    @Test
-    public void testAddMouse() {
-        System.out.println("addBone");
-=======
     /**
      * Test of addMouse method, of class Cat.
      */
     @Test
     public void testAddMouse() {
         System.out.println("addMouse");
->>>>>>> 0ccb324173edfa9ee5b05168995949d38c03d773
         int par1 = 1;
         Cat instance = new Cat(4.5,6.7,"cat.png",true);
         instance.addMouse(par1);
@@ -140,19 +106,13 @@ public class CatTest {
     }
 
     /**
-<<<<<<< HEAD
      * Test of decmouse method, of class Cat.
      */
-    @Test
-    public void testDecBone() {
-        System.out.println("decBone");
-=======
-     * Test of decMouse method, of class Cat.
-     */
+
+
     @Test
     public void testDecMouse() {
         System.out.println("decMouse");
->>>>>>> 0ccb324173edfa9ee5b05168995949d38c03d773
         int par1 = 3;
         Cat instance = new Cat(4.5,6.7,"cat.png",true);
         instance.addMouse(par1);
@@ -305,11 +265,8 @@ public class CatTest {
     public void testLife13() {
         System.out.println("life");
         Cat instance = new Cat(4.5,6.7,"cat.png",true);        
-        instance.setStatus("Hunting");
-<<<<<<< HEAD
+        instance.setStatus("Polowanie");
         instance.stage = 1;
-=======
->>>>>>> 0ccb324173edfa9ee5b05168995949d38c03d773
         instance.life();
         double expectedResult = 4.5+0.3;
         double result = instance.getX();
@@ -343,7 +300,7 @@ public class CatTest {
         Cat instance = new Cat(4.5,6.7,"cat.png",true);
         instance.setPower(0);
         instance.life();
-        String expectedResult = "Dead";
+        String expectedResult = "Śmierć";
         String result = instance.getStatus();
         assertEquals(expectedResult, result);
     }  
