@@ -27,14 +27,14 @@ public class Cat extends Animal {
 		mouse = 0;
 		setStatus("Idle");
 	}
-        
-        public int getBobbing(){
-            return bobbing;
-        }
-        
-        public void setBobbing(int x){
-            this.bobbing = x;
-        }
+
+	public int getBobbing() {
+		return bobbing;
+	}
+
+	public void setBobbing(int x) {
+		this.bobbing = x;
+	}
 
 	public void hunting() {
 		setStatus("Hunting");

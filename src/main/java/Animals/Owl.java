@@ -20,14 +20,14 @@ public class Owl extends Animal {
 		seed = 0;
 		setStatus("Idle");
 	}
-        
-        public int getBobbing(){
-            return bobbing;
-        }
-        
-        public void setBobbing(int x){
-            this.bobbing = x;
-        }
+
+	public int getBobbing() {
+		return bobbing;
+	}
+
+	public void setBobbing(int x) {
+		this.bobbing = x;
+	}
 
 	public void fly() {
 		setStatus("Flying");
