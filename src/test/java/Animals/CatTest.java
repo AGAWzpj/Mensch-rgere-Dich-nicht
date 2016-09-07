@@ -254,7 +254,7 @@ public class CatTest {
     public void testLife12() {
         System.out.println("life");
         Cat instance = new Cat(4.5,6.7,"cat.png",true);        
-        instance.setStatus("Playing");
+        instance.setStatus("Zabawa");
         instance.life();
         double expectedResult = 6.7-1.5;
         double result = instance.getY();
