@@ -7,6 +7,9 @@ package AnimalFactory;
 
 import Animals.Animal;
 import Animals.Cat;
+import Animals.Dog;
+import Animals.Owl;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -82,5 +85,33 @@ public class FactoryWrapperTest {
 
         //sprawdzanie czy metoda zostala wywolana dokladnie raz z parametrem AnimalType.Cat
         Mockito.verify(mock, Mockito.times(1)).createCreature(AnimalType.Cat);
+    }
+    
+    @Test
+    public void testGetAnimal1() {
+        System.out.println("getAnimal");
+        Animal expResult = new Dog(1, 2, "dog.png", false);
+
+        Mockito.when(mock.createCreature(Matchers.any(AnimalType.class))).thenReturn(expResult);
+
+        AnimalType type = AnimalType.Dog;
+        Animal result = fw.getAnimal(type);
+        assertEquals(expResult, result);
+
+        Mockito.verify(mock, Mockito.times(1)).createCreature(AnimalType.Dog);
+    }
+    
+    @Test
+    public void testGetAnimal2() {
+        System.out.println("getAnimal");
+        Animal expResult = new Owl(1, 2, "owl.png", false);
+
+        Mockito.when(mock.createCreature(Matchers.any(AnimalType.class))).thenReturn(expResult);
+
+        AnimalType type = AnimalType.Owl;
+        Animal result = fw.getAnimal(type);
+        assertEquals(expResult, result);
+
+        Mockito.verify(mock, Mockito.times(1)).createCreature(AnimalType.Owl);
     }
 }
