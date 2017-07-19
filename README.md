@@ -1,6 +1,5 @@
 # Tamagotchi - ZZJP2016
 
-Autorzy: Anna Wójcik, Adam Gorazda
 
 Tamagotchi jest to gra polegająca na opiece nad wirtualnym zwierzątkiem powstała pok koniec XX wieku w Japonii. W grze istnieje wybór pomiędzy trzema zwierzętami - psem (dog), kotem (cat) oraz sową (owl). Każdego z nich można dowolnie nazwać. W system opieki nad zwięrzątkiem wchodzi jego karmienie, zabawa z nim, wyjście na spacer, polowanie itp. Gra ta posiada 2 atrybuty - poziom energii oraz poziom głodu. W momencie osiągnięcia wartości 0, zwierzątko umiera a na ekranie pojawia sie informacja jak długo gracz opiekował się swoim pupilem. Gra ta na podstawie posiadanych atrybutów pokazuje jeden z 4 poziomów zadowolenia zwierzaka. 
 
